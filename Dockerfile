@@ -4,7 +4,9 @@ FROM maven:3-jdk-8-alpine as build-stage
 WORKDIR /home/ubuntu/train
 
 # Copy only the necessary files from the build context
-COPY /var/lib/jenkins/workspace/docker-compose/* /home/ubuntu/train/
+RUN ls /var/lib/jenkins/workspace/docker-compose/
+COPY /var/lib/jenkins/workspace/docker-compose/ /home/ubuntu/train/
+
 
 # Build the application
 RUN mvn clean package
