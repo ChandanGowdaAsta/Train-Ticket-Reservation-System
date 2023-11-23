@@ -1,5 +1,5 @@
 FROM maven:3-jdk-8-alpine as build-stage
-WORDIR /home/ubuntu/train
+WORKDIR /home/ubuntu/train
 COPY /var/lib/jenkins/workspace/docker-compose .
 RUN mvn clean package
 FROM tomcat:9.0.82-jdk8-corretto-al2
